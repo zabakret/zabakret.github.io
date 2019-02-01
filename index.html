@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Żaba + Kret = ♥</title>	
+	<link rel="stylesheet" type="text/css" href="./files/site.css">
+</head>
+<body>
+	<div id="container">
+		<ul>
+			<li><img src="./files/zaba.jpg" alt=""></li>		
+			<li>+</li>		
+			<li><img src="./files/kret.jpg" alt=""></li>			
+		</ul>
+		<ul>
+			=
+		</ul>
+		<ul>
+			<li><img src="./files/tenor.gif" alt=""></li>
+		</ul>
+	<p>Żaba i Kret się zakochali</p>
+	<p>I nic w tym temacie się nie zmienia</p>
+	<p>Publicznie tę miłość w Urzędzie wyznali</p>
+	<p>Więc Mleczu składa te średnie życzenia</p>
+</div>
+<div>
+	<div id="random_cat"></div>
+</div>
+</body>
+<script>
+function ajax_get(url, callback) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      console.log('responseText:' + xmlhttp.responseText);
+      try {
+        var data = JSON.parse(xmlhttp.responseText);
+      } catch (err) {
+        console.log(err.message + " in " + xmlhttp.responseText);
+        return;
+      }
+      callback(data);
+    }
+  };
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}
+
+ajax_get('https://api.thecatapi.com/v1/images/search?size=full', function(data) {
+  var html = 'Randomowy kot: <div><img src="' + data[0]["url"] + '"></div>';
+  document.getElementById("random_cat").innerHTML = html;
+});
+</script>
+</html>

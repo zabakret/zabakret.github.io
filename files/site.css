@@ -1,0 +1,22 @@
+html,body {
+	background: #6824C6;
+	font-family: Comic Sans,Comic Sans MS,cursive;
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+}
+ul li {
+	display: inline;
+}
+img {
+	border: none;
+}
+#container {
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
